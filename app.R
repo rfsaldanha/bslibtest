@@ -1,17 +1,13 @@
 # Packages
 library(shiny)
 library(bslib)
+library(sass)
 library(ggplot2)
 
 # Interface
 ui <- page_navbar(
   title = "Título do app", 
-  theme = bs_theme(
-    # https://rstudio.github.io/bslib/articles/theming/index.html#main-colors
-    primary = "#237570",
-    secondary = "#E0510A",
-    success = "#936728"
-  ),
+  theme = bs_theme(brand = "_brand.yml"),
 
   # Logo
   tags$head(
