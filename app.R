@@ -7,17 +7,23 @@ library(ggplot2)
 # Interface
 ui <- page_navbar(
   title = "Título do app", 
-  theme = bs_theme(brand = "_brand.yml"),
+  theme = bs_theme() |>
+    bs_add_rules(
+      list(
+        sass::sass_file("www/style.scss")
+      )
+    ),
+      
 
   # Logo
   tags$head(
     tags$script(
       HTML('$(document).ready(function() {
              $(".navbar .container-fluid")
-               .append("<img id = \'myImage\' src=\'selo_obs_h.png\' align=\'right\' height = \'57.5px\'>"  );
+               .append("<img id = \'logo\' src=\'selo_obs_h.png\' align=\'right\' height = \'57.5px\'>"  );
             });')),
     tags$style(
-      HTML('@media (max-width:992px) { #myImage { position: fixed; right: 10%; top: 0.5%; }}')
+      HTML('@media (max-width:992px) { #logo { position: fixed; right: 10%; top: 0.5%; }}')
     )),
 
   # Translation
